@@ -1,2 +1,2 @@
-# Sonoma-County-Web-Development-
-This is a website to show what kind of pages I would like to make. It is also going to be a catch all for content I want to show like blog posts, photos, and in addition, things that inspire me
+# Russian River Design
+This is a website to show things I am interested in and create a catalog of offerings
