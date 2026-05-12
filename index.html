@@ -1,999 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonoma County Web Development - Professional Website Design & SEO</title>
-    <meta name="description"
-        content="Professional website design and SEO services in Sonoma County. We help local businesses grow their online presence with affordable monthly plans.">
-    <meta name="keywords" content="website design, SEO, Sonoma County, small business, web development">
+    <title>Russian River Design | Full-Service Marketing & Creative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        /* Base styles */
         :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --text-dark: #111827;
-            --text-light: #4b5563;
-            --text-lighter: #9ca3af;
-            --bg-light: #ffffff;
-            --bg-dark: #111827;
-            --bg-gray: #f3f4f6;
-            --transition: all 0.3s ease;
+            --primary: #1a1a1a;
+            --accent: #2d5a27; /* Forest Green for that Russian River vibe */
+            --light: #f4f4f4;
+            --white: #ffffff;
+            --text-gray: #555;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--primary);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
+        h1, h2, h3 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
         }
 
         /* Navigation */
-        .navbar {
-            position: fixed;
+        header {
+            padding: 1.2rem 5%;
+            background: var(--white);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 0;
-            background-color: var(--bg-dark);
             z-index: 1000;
-            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
-        .navbar.scrolled {
-            background-color: var(--bg-light);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0.5rem 0;
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--bg-light);
+        .logo { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            letter-spacing: -0.5px; 
+            color: var(--primary);
             text-decoration: none;
         }
+        .logo span { color: var(--accent); }
 
-        .scrolled .nav-brand {
-            color: var(--text-dark);
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            align-items: center; 
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
+        nav ul li { margin-left: 2rem; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            transition: color 0.3s;
         }
+        nav ul li a:hover { color: var(--accent); }
 
-        .nav-links a {
-            color: var(--bg-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .scrolled .nav-links a {
-            color: var(--text-dark);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-cta {
-            background-color: var(--primary-color);
-            color: var(--bg-light) !important;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--primary-hover);
-            color: var(--bg-light) !important;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--bg-light);
-            margin: 5px 0;
-            transition: var(--transition);
-        }
-
-        .scrolled .mobile-menu-btn span {
-            background-color: var(--text-dark);
+        .cta-nav { 
+            background: var(--accent); 
+            color: var(--white) !important; 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 2px; 
         }
 
         /* Hero Section */
         .hero {
-            padding-top: 6rem;
-            background-color: var(--bg-dark);
-            color: var(--bg-light);
-            position: relative;
-        }
-
-        .hero-content {
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero-text {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--text-lighter);
-        }
-
-        .hero-cta {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
-            gap: 1rem;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
         }
 
-        /* Buttons */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--primary-color);
-            color: var(--bg-light);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+        .hero-content h1 { 
+            font-size: clamp(2.5rem, 6vw, 4rem); 
+            margin-bottom: 1.5rem; 
+            line-height: 1.1;
+        }
+        .hero-content p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto 2rem; 
+            font-weight: 300;
         }
 
-        .cta-button:hover {
-            background-color: var(--primary-hover);
+        .btn-primary { 
+            display: inline-block;
+            background: var(--accent); 
+            color: var(--white); 
+            padding: 1.2rem 2.8rem; 
+            text-decoration: none; 
+            font-weight: 700;
+            transition: transform 0.2s, background 0.3s;
         }
-
-        .secondary-button {
-            display: inline-flex;
-            align-items: center;
-            border: 2px solid var(--bg-light);
-            color: var(--bg-light);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .secondary-button:hover {
-            background-color: var(--bg-light);
-            color: var(--bg-dark);
-        }
-
-        /* City Section */
-        .city {
-            padding: 4rem 0;
-            background-color: var(--bg-gray);
-        }
-
-        .city-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .city-content {
-            max-width: 600px;
-        }
-
-        .city-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .btn-primary:hover { 
+            background: #1e3d1a;
+            transform: translateY(-3px);
         }
 
         /* Services Section */
-        .services {
-            padding: 4rem 0;
-            background-color: var(--bg-light);
+        .services { 
+            padding: 6rem 5%; 
+            background: var(--light); 
+            text-align: center; 
+        }
+        .services h2 { 
+            margin-bottom: 4rem; 
+            font-size: 2.2rem; 
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .services h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background-color: var(--bg-gray);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .service-link:hover {
-            color: var(--primary-hover);
-        }
-
-        /* Portfolio Section */
-        .work {
-            padding: 4rem 0;
-            background-color: var(--bg-gray);
-        }
-
-        .work-grid {
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .work-item {
-            background-color: var(--bg-light);
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .work-image img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .work-content {
-            padding: 1.5rem;
-        }
-
-        .work-category {
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .work-stat {
-            color: var(--text-light);
-            margin: 0.5rem 0;
-        }
-
-        .work-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .work-link:hover {
-            color: var(--primary-hover);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 4rem 0;
-            background-color: var(--bg-light);
-        }
-
-        .pricing-card {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            background-color: var(--bg-gray);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            position: relative;
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -1rem;
-            right: 2rem;
-            background-color: var(--primary-color);
-            color: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-weight: 600;
-        }
-
-        .pricing-amount {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .amount {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        .period {
-            color: var(--text-light);
-        }
-
-        .commitment {
-            color: var(--text-light);
-            margin-top: 0.5rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .pricing-features li {
-            margin: 0.75rem 0;
-            color: var(--text-light);
-        }
-
-        .custom-solution {
-            text-align: center;
-            max-width: 600px;
+            gap: 2.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .pricing-notes {
-            text-align: center;
-            color: var(--text-light);
-            margin-top: 2rem;
+        .service-card {
+            background: var(--white);
+            padding: 3.5rem 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 5px solid transparent;
         }
 
-        /* About Section */
-        .about {
-            padding: 4rem 0;
-            background-color: var(--bg-gray);
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            border-top-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        .service-card h3 { 
+            margin-bottom: 1.2rem; 
+            font-size: 1.1rem; 
+            color: var(--primary);
         }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .about-list li {
-            margin: 0.75rem 0;
-            color: var(--text-light);
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
         }
 
         /* Contact Section */
-        .contact {
-            padding: 4rem 0;
-            background-color: var(--bg-light);
-        }
+        .contact { padding: 6rem 5%; }
+        .contact-container { max-width: 700px; margin: 0 auto; text-align: center; }
+        .contact h2 { margin-bottom: 1rem; }
+        .contact p { margin-bottom: 3rem; color: var(--text-gray); }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        form { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; 
+            text-align: left;
         }
+        .full-width { grid-column: span 2; }
 
-        .contact-details {
-            margin-top: 2rem;
+        input, select, textarea { 
+            padding: 1.2rem; 
+            border: 1px solid #ddd; 
+            font-size: 1rem; 
+            width: 100%; 
+            font-family: inherit;
         }
+        textarea { height: 150px; resize: none; }
 
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+        .btn-submit { 
+            grid-column: span 2;
+            background: var(--primary); 
+            color: var(--white); 
+            border: none; 
+            padding: 1.2rem; 
+            cursor: pointer; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
         }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-        }
-
-        .contact-item h4 {
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-hover);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--text-lighter);
-            border-radius: 0.5rem;
-            background-color: var(--bg-light);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .submit-button {
-            background-color: var(--primary-color);
-            color: var(--bg-light);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
-        }
-
-        .submit-button:hover {
-            background-color: var(--primary-hover);
-        }
+        .btn-submit:hover { background: var(--accent); }
 
         /* Footer */
-        .footer {
-            background-color: var(--bg-dark);
-            color: var(--bg-light);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand h3 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            color: var(--text-lighter);
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-column h4 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin: 0.5rem 0;
-        }
-
-        .footer-column a {
-            color: var(--text-lighter);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-column a:hover {
-            color: var(--bg-light);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+        footer {
+            padding: 4rem 5%;
+            background: #000;
+            color: #888;
             text-align: center;
-            color: var(--text-lighter);
-        }
-
-        /* Media Queries */
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 2rem;
-            }
-
-            .city-grid,
-            .about-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr 2fr;
-            }
-
-            .form-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 2fr 3fr;
-            }
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--bg-light);
-                padding: 1rem;
-                flex-direction: column;
-                align-items: stretch;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links a {
-                color: var(--text-dark);
-                padding: 0.5rem 0;
-                text-align: center;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
+            nav ul { display: none; } /* Simplified for copy-paste mobile */
+            .hero-content h1 { font-size: 2.5rem; }
+            form { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .btn-submit { grid-column: span 1; }
         }
     </style>
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="nav-brand">Sonoma County Web Development</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Portfolio</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="nav-cta">Get Started</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
 
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>Sonoma County Web Development & SEO</h1>
-            <p class="hero-text">Professional websites for Sonoma County businesses starting at $150/month.</p>
-            <div class="hero-cta">
-                <a href="#pricing" class="cta-button">View Pricing →</a>
-                <a href="#contact" class="secondary-button">Contact Us →</a>
-            </div>
-        </div>
-    </section>
+    <header>
+        <nav>
+            <a href="#" class="logo">RUSSIAN RIVER<span>DESIGN</span></a>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Consulting</a></li>
+                <li><a href="#contact" class="cta-nav">Let's Talk</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="city" class="city">
-        <div class="container">
-            <div class="city-grid">
-                <div class="city-content">
-                    <h2>Sonoma County Web Development & SEO</h2>
-                    <p>We help Sonoma County businesses stand out online with custom websites that attract more
-                        customers
-                        and grow your business.</p>
-                    <p>Our affordable website design and SEO services are specifically tailored for local businesses
-                        looking to expand their digital presence and connect with more customers in Sonoma County and
-                        beyond.</p>
-                    <div class="city-cta">
-                        <a href="#services" class="cta-button">Our Services →</a>
-                        <a href="#pricing" class="secondary-button">View Pricing →</a>
-                    </div>
-                </div>
-                <div class="city-image">
-                    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop"
-                        alt="Sonoma County, California">
-                </div>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Brand<br>By the River.</h1>
+            <p>A full-service creative agency specializing in digital growth, traditional marketing, and high-impact physical branding.</p>
+            <a href="#services" class="btn-primary">Explore Services</a>
         </div>
     </section>
 
     <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p class="section-subtitle">We provide comprehensive web solutions for Sonoma County businesses looking to
-                grow their online presence</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Website Design & Development</h3>
-                    <p>Custom websites tailored to your brand and business goals. Responsive design for all devices.</p>
-                    <a href="#contact" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>Local SEO</h3>
-                    <p>Get found by customers in Sonoma County with targeted local SEO strategies that drive traffic to
-                        your website.</p>
-                    <a href="#contact" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Website Maintenance</h3>
-                    <p>Keep your website secure, fast, and up-to-date with our monthly maintenance service.</p>
-                    <a href="#contact" class="service-link">Learn More →</a>
-                </div>
+        <h2>What We Do</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>High-performance, responsive websites designed to convert local traffic into loyal customers.</p>
             </div>
-            <div class="section-cta">
-                <a href="#pricing" class="cta-button">View Our Pricing →</a>
+            <div class="service-card">
+                <h3>Social & Digital</h3>
+                <p>Strategic social media management and targeted advertising to put your brand where people are looking.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="projects" class="work">
-        <div class="container">
-            <h2>Our Portfolio</h2>
-            <p class="section-subtitle">See how we've helped Sonoma County businesses grow their online presence</p>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-image">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2074&auto=format&fit=crop"
-                            alt="Local Restaurant Website">
-                    </div>
-                    <div class="work-content">
-                        <p class="work-category">Web Design & Development</p>
-                        <h3>Local Restaurant Website</h3>
-                        <p class="work-stat">+120% Online Orders</p>
-                        <a href="#contact" class="work-link">View Details →</a>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <div class="work-image">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
-                            alt="Boutique Hotel">
-                    </div>
-                    <div class="work-content">
-                        <p class="work-category">Web Development & SEO</p>
-                        <h3>Boutique Hotel Booking System</h3>
-                        <p class="work-stat">+85% Bookings</p>
-                        <a href="#contact" class="work-link">View Details →</a>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <div class="work-image">
-                        <img src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?q=80&w=2070&auto=format&fit=crop"
-                            alt="Local Tour Company">
-                    </div>
-                    <div class="work-content">
-                        <p class="work-category">Website & Local SEO</p>
-                        <h3>Local Tour Company</h3>
-                        <p class="work-stat">+200% Inquiries</p>
-                        <a href="#contact" class="work-link">View Details →</a>
-                    </div>
-                </div>
+            <div class="service-card">
+                <h3>Signs & Graphics</h3>
+                <p>From custom storefront signage to professional logo design, we handle your physical identity.</p>
             </div>
-            <div class="section-cta">
-                <a href="#contact" class="cta-button">Start Your Project →</a>
+            <div class="service-card">
+                <h3>Photography</h3>
+                <p>Commercial-grade product, lifestyle, and architectural photography that captures your best light.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Transparent Pricing</h2>
-            <p class="section-subtitle">Affordable website solutions for Sonoma County businesses with no upfront costs
-            </p>
-            <div class="pricing-card">
-                <div class="pricing-badge">$0 Down Payment</div>
-                <h3>Website Package</h3>
-                <p>Complete website solution for small businesses</p>
-                <div class="pricing-amount">
-                    <span class="amount">$150</span>
-                    <span class="period">/month</span>
-                    <p class="commitment">12-month subscription</p>
-                </div>
-                <ul class="pricing-features">
-                    <li>✓ Custom Website Design</li>
-                    <li>✓ Mobile Responsive Design</li>
-                    <li>✓ Contact Form</li>
-                    <li>✓ Google Maps Integration</li>
-                    <li>✓ Basic SEO Setup</li>
-                    <li>✓ Social Media Integration</li>
-                    <li>✓ Monthly Maintenance</li>
-                    <li>✓ Monthly Analytics Report</li>
-                    <li>✓ Email Support</li>
-                    <li>✓ Content Management System</li>
-                    <li>✓ Weekly Backups</li>
-                    <li>✓ 5 Custom Pages</li>
-                </ul>
-                <a href="#contact" class="cta-button">Get Started</a>
+            <div class="service-card">
+                <h3>Traditional Marketing</h3>
+                <p>Print media, mailers, and local outreach strategies that still move the needle in Sonoma County.</p>
             </div>
-            <div class="custom-solution">
-                <h3>Need a Custom Solution?</h3>
-                <p>We also offer custom website and digital marketing packages tailored to your specific business needs.
-                </p>
-                <a href="#contact" class="cta-button">Contact Us for a Custom Quote →</a>
-            </div>
-            <div class="pricing-notes">
-                <p>* All plans include a 12-month commitment</p>
-                <p>* No upfront costs or setup fees</p>
-                <p>* Monthly billing for your convenience</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-                        alt="Team collaboration">
-                </div>
-                <div class="about-content">
-                    <h2>About Sonoma County Web Development</h2>
-                    <p>At Sonoma County Web Development, we're dedicated to helping small business owners in Sonoma
-                        County
-                        thrive in the digital
-                        landscape. Our mission is to empower local businesses by creating powerful online presences that
-                        not only attract new customers but also effectively convert existing leads into loyal clients.
-                    </p>
-                    <p>We understand the unique challenges small businesses face in Sonoma County, and we're here to
-                        provide the digital tools and expertise needed for sustainable growth.</p>
-                    <h3>Why Choose Us?</h3>
-                    <ul class="about-list">
-                        <li>✓ Deep understanding of Sonoma County's local market</li>
-                        <li>✓ Proven lead conversion strategies for small businesses</li>
-                        <li>✓ Affordable monthly payment plans with no upfront costs</li>
-                        <li>✓ Dedicated support for your ongoing success</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Get in Touch →</a>
-                </div>
+            <div class="service-card">
+                <h3>Strategic Consulting</h3>
+                <p>Expert business advice to streamline your marketing efforts and maximize your seasonal ROI.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p class="section-subtitle">Ready to grow your business online? Get in touch with our team.</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:SonomaWebDev@gmail.com">SonomaWebDev@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:7075200016">(707) 520-0016</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" placeholder="John Doe" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="john@example.com" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="How can we help you?" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4" placeholder="Tell us about your project..."
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
-                </div>
-            </div>
+        <div class="contact-container">
+            <h2>Work With Us</h2>
+            <p>Tell us about your project goals and we'll be in touch within 24 hours.</p>
+            <form id="contact-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <select class="full-width">
+                    <option value="">Primary Interest...</option>
+                    <option value="web">Web Development</option>
+                    <option value="marketing">Social Media/Marketing</option>
+                    <option value="creative">Signs & Graphic Design</option>
+                    <option value="photo">Photography</option>
+                    <option value="consulting">Business Consulting</option>
+                </select>
+                <textarea class="full-width" placeholder="Describe your project (e.g., 'Need a new sign for my Guerneville shop' or 'SEO for my vacation rental')"></textarea>
+                <button type="submit" class="btn-submit">Request a Quote</button>
+            </form>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Sonoma County Web Development</h3>
-                    <p>Website Design & SEO Solutions for Sonoma County Businesses</p>
-                    <p>$0 Down, $100/Month</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#projects">Portfolio</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact Info</h4>
-                        <ul>
-                            <li>Email: SonomaWebDev@gmail.com</li>
-                            <li>Phone: (707) 520-0016</li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Sonoma County Web Development. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                    <a href="google6490a283c52bc63c.html"
-                        style="color: var(--text-lighter); text-decoration: none;">Google Verification</a>
-                </p>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2026 Russian River Design. Proudly serving Sonoma County.</p>
     </footer>
 
-    <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            let isOpen = false;
-
-            mobileMenuBtn.addEventListener('click', function () {
-                isOpen = !isOpen;
-                navLinks.style.display = isOpen ? 'flex' : 'none';
-                mobileMenuBtn.classList.toggle('active');
-            });
-
-            // Handle navbar background on scroll
-            window.addEventListener('scroll', function () {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 10) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // Handle contact form submission
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    // Add your form submission logic here
-                    alert('Thank you for your message. We will get back to you soon!');
-                    contactForm.reset();
-                });
-            }
-        });
-    </script>
 </body>
-
 </html>
